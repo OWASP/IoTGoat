@@ -13,11 +13,9 @@ $ wget https://downloads.openwrt.org/releases/18.06.2/targets/x86/generic/openwr
 $ gunzip openwrt-18.06.2-x86-generic-combined-ext4.img.gz
 $ qemu-img convert -f raw -O vmdk openwrt-18.06.2-x86-generic-combined-ext4.img lede1806.vmdk
 ```
-2) Once the image is converted to a vmdk image, open VMWare and "Create a new virtual machine"
+2) Once the image is converted to a vmdk image, open VMWare and "Create a custom virtual machine"
 
-3) Use generic 32bit Linux as guest OS and an E1000 NIC adapter.
-
-4) Select "Other Linux 2.6.x kernel” or “Other Linux 3.x kernel"
+3) Select "Other Linux 2.6.x kernel” or “Other Linux 3.x kernel" as the guest operating system an E1000 NIC adapter which may need to be changed via the ".vmx" file as demonstrated below.  
 
 4) Within the virtual machine settings, select “Hard Disk” and change the bus type to use an “IDE" virtual disk (not SCSI).
 
@@ -27,7 +25,7 @@ $ qemu-img convert -f raw -O vmdk openwrt-18.06.2-x86-generic-combined-ext4.img 
 
 ![vmxiotgoat](/images/vmx.png)
 
-###### Note: In OSX, you will need to right click the VMWare image and select “Show in Finder” then right click and select “Show Package Contents” where you should now be able to see the “.vmx” file.
+###### Note: In OS X, you will need to right click the VMWare image and select “Show in Finder” then right click and select “Show Package Contents” where you should now be able to see the “.vmx” file.
 
 6) Save the file
 
@@ -36,8 +34,11 @@ Ensure your Network adapter settings are set to NAT
 
 ![Network Adapters](/images/networkadapter.png)
 
-8) Boot up the Virtual Machine
-Verify an IP address is pulled (VMware fusion should prompt your passwd for network connections)
+8) Boot up the Virtual Machine (may need to press enter) and and verify an IP address is pulled
+###### Note: In OS X, VMware fusion should prompt your password for network connections.
+
+![ifconfig](/images/ifconfig.png)
+
 
 To test network access, start up another VM in the same NAT network adapter configuration such as a Kali Linux machine.
 Execute the following command on the Kali Linux machine or another virtual machine with a NAT configured adapter
@@ -64,5 +65,4 @@ BusyBox v1.28.4 () built-in shell (ash)
  OpenWrt 18.06.2, r7676-cddd7b4c77
  -----------------------------------------------------
 ```
-Begin working on challenges
-
+Begin working on [challenges](/challenges/challenges.md)

@@ -45,11 +45,12 @@ CTF-like flags for each challenge
 
 
 <h5>Roadmap:</h5>
-- April 2019: No1 and No2
-- June 2019: No9
-- July 2019: No3
-- August 2019: No5
-- September 2019: No8
-- October 2019: No6
-- November 2019: No7
-- December 2019: No4
+
+April 2019: No1 and No2\
+June 2019: No9\
+July 2019: No3\
+August 2019: No5\
+September 2019: No8\
+October 2019: No6\
+November 2019: No7\
+December 2019: No4

@@ -1,4 +1,4 @@
-<h3>Challenges
+<h3>Challenges</h3>
 
 Examples of vulnerabilities included in IoTGoat consist of the following:
 
@@ -37,14 +37,14 @@ No 11: Embedded credentials in internal components:
 Embed credentials of another service (could be one of the existing ones) in a compiled Java application (JAR file). Application could be added to the firmware file so users can find it through firmware analysis or another vulnerability such as a local file inclusion.
 
 
-<h4>Things to consider:
+<h4>Things to consider:</h4>
 
 In what form is the documentation going to be presented? We could start with an OWASP wiki page.
 Will every vulnerability be first demonstrated in a step-by-step tutorial and then an additional exercise will have to be completed by the reader?  Or alternatively give the user a high-level description of the challenge and let them do it themselves.
 CTF-like flags for each challenge
 
 
-<h5>Roadmap:
+<h5>Roadmap:</h5>
 - April 2019: No1 and No2
 - June 2019: No9
 - July 2019: No3

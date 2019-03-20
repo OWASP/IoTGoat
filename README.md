@@ -13,6 +13,7 @@ $ wget https://downloads.openwrt.org/releases/18.06.2/targets/x86/generic/openwr
 $ gunzip openwrt-18.06.2-x86-generic-combined-ext4.img.gz
 $ qemu-img convert -f raw -O vmdk openwrt-18.06.2-x86-generic-combined-ext4.img lede1806.vmdk
 ```
+###### Note: Other virtualization methods are available. Please see https://openwrt.org/docs/guide-user/virtualization/start
 2) Once the image is converted to a vmdk image, open VMWare and "Create a custom virtual machine"
 
 3) Select "Other Linux 2.6.x kernel” or “Other Linux 3.x kernel" as the guest operating system an E1000 NIC adapter which may need to be changed via the ".vmx" file as demonstrated below.  

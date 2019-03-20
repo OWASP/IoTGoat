@@ -36,6 +36,8 @@ This will not be probably included in IoT goat due to limiting the project to so
 No 11: Embedded credentials in internal components:
 Embed credentials of another service (could be one of the existing ones) in a compiled Java application (JAR file). Application could be added to the firmware file so users can find it through firmware analysis or another vulnerability such as a local file inclusion.
 
+No 12: Insecure firmware build system:
+Develop custom firmware builds of the latest OpenWrt version (18.06) demonstrating the process of incorporating debug services/tools, misconfigurations, and usage of vulnerable software packages.
 
 <h4>Things to consider:</h4>
 

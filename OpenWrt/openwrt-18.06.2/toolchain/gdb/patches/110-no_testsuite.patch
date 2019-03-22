@@ -1,0 +1,21 @@
+--- a/gdb/configure
++++ b/gdb/configure
+@@ -869,8 +869,7 @@ MAKEINFOFLAGS
+ YACC
+ YFLAGS
+ XMKMF'
+-ac_subdirs_all='testsuite
+-gdbtk
++ac_subdirs_all='gdbtk
+ multi-ice
+ gdbserver'
+ 
+@@ -6473,7 +6472,7 @@ $as_echo "$with_auto_load_safe_path" >&6
+ 
+ 
+ 
+-subdirs="$subdirs testsuite"
++subdirs="$subdirs"
+ 
+ 
+ # Check whether to support alternative target configurations

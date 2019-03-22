@@ -1,0 +1,39 @@
+--- a/nl80211.h
++++ b/nl80211.h
+@@ -2153,6 +2153,9 @@ enum nl80211_commands {
+  * @NL80211_ATTR_PMKR0_NAME: PMK-R0 Name for offloaded FT.
+  * @NL80211_ATTR_PORT_AUTHORIZED: (reserved)
+  *
++ * @NL80211_ATTR_WIPHY_ANTENNA_GAIN: Configured antenna gain. Used to reduce
++ *	transmit power to stay within regulatory limits. u32, dBi.
++ *
+  * @NUM_NL80211_ATTR: total number of nl80211_attrs available
+  * @NL80211_ATTR_MAX: highest attribute number currently defined
+  * @__NL80211_ATTR_AFTER_LAST: internal use
+@@ -2579,6 +2582,8 @@ enum nl80211_attrs {
+ 	NL80211_ATTR_PMKR0_NAME,
+ 	NL80211_ATTR_PORT_AUTHORIZED,
+ 
++	NL80211_ATTR_WIPHY_ANTENNA_GAIN,
++
+ 	/* add attributes here, update the policy in nl80211.c */
+ 
+ 	__NL80211_ATTR_AFTER_LAST,
+@@ -3862,9 +3867,6 @@ enum nl80211_bss_scan_width {
+  *	@NL80211_BSS_PARENT_BSSID. (u64).
+  * @NL80211_BSS_PARENT_BSSID: the BSS according to which @NL80211_BSS_PARENT_TSF
+  *	is set.
+- * @NL80211_BSS_CHAIN_SIGNAL: per-chain signal strength of last BSS update.
+- *	Contains a nested array of signal strength attributes (u8, dBm),
+- *	using the nesting index as the antenna number.
+  * @__NL80211_BSS_AFTER_LAST: internal
+  * @NL80211_BSS_MAX: highest BSS attribute
+  */
+@@ -3888,7 +3890,6 @@ enum nl80211_bss {
+ 	NL80211_BSS_PAD,
+ 	NL80211_BSS_PARENT_TSF,
+ 	NL80211_BSS_PARENT_BSSID,
+-	NL80211_BSS_CHAIN_SIGNAL,
+ 
+ 	/* keep last */
+ 	__NL80211_BSS_AFTER_LAST,

@@ -86,22 +86,22 @@ For additional details on creating modules, see https://openwrt.org/docs/guide-d
 
 Navigate to the OpenWrt web interface and observe the newly created IoTGoat tab. Three should not be dropdown items beneath. For now, this is by design as we want our secret page to be inaccessible from normal browsing.
 
-[IoTGoat Tab](/images/iotgoattab.png)
+![IoTGoat Tab](/images/iotgoattab.png)
 
 Try accessing the supersecret URL directly: https://192.168.1.1/cgi-bin/luci/admin/iotgoat/supersecret. The following image should be displayed.
 
-[IoTGoat Secret Page](/images/iotgoatsecretpage.png)
+![IoTGoat Secret Page](/images/iotgoatsecretpage.png)
 
 In plain sight, no values appear to be shown. Although, open developer tools within the browser and observe the network and console tabs. You should be see the following.
 
-[IoTGoat Response](/images/iotgoatsecretresponse.png)
+![IoTGoat Response](/images/iotgoatsecretresponse.png)
 
 Our hardcoded password value is displayed in the response and console. A follow up challenge could leverage these credentials due to a vulnerable network service disclosing usernames. Fortunately, the iotgoatuser  is lower privileged and restricted to perform certain functions.
 
 ## Mitigation
 To mitigate this vulnerability, the following could be done:
 - Treat all web pages as public facing
--  Remove exposed web pages used for debugging purposes such as the s.htm file. 
+-  Remove exposed web pages used for debugging purposes such as the s.htm file.
 - Do not rely on obscurity for encoding secrets or password values within applications
 - Ensure secrets are logged to the console
 - Ensure user passwords are complex

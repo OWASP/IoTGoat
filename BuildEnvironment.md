@@ -58,8 +58,8 @@ There will be multiple firmware images stored in this directory depending on the
 
 <h3> Verifying Compiled Changes </h3>
 To begin verifying changes, decompress the squashfs image by issuing the following gunzip command: <br>
+
 `# gunzip -d openwrt-brcm2708-bcm2708-rpi-squashfs-factory.img.gz`
-</br>
 
 Next, running binwalk on the firmware file. <br>
 

@@ -23,7 +23,7 @@ Run the following commands to obtain package definitions and install symlinks fo
 
 At this time, hardware discussions are in progress for future IoTGoat versions. For now,  proceed with building a Raspberry Pi firmware image by selecting from the following options:
 
-Model | SoC | Target | Subtarget
+```Model | SoC | Target | Subtarget
 ------------ | -------------
 A | BCM2835 @ 700MHz | BCM27XX | BCM2708
 B | BCM2835 @ 700MHz | BCM27XX | BCM2708
@@ -33,8 +33,8 @@ B+ | BCM2835 @ 700MHz | BCM27XX | BCM2708
 Zero | BCM2835 @ 1GHz | BCM27XX | BCM2708
 2B |  	BCM2836 @ 900MHz | BCM27XX | BCM2709
 3B |  	BCM2837 @ 1.2GHz | BCM27XX | BCM2710
-
-In this case we have chosen Target System (Broadcom BCM27xx) and Subtarget BCM2708
+```
+In this case, we have chosen Target System (Broadcom BCM27xx) and Subtarget BCM2708
 
 ![Target Settings](/images/owrttarget.png)
 You may also wish to select the LuCi package in order to install the web interface.
@@ -47,6 +47,7 @@ When ready, select "Save", "ok" then exit.
 To build your custom firmware, run the following command:
 ###### Note: Building firmware can take several hours depending on your internet connection.
 <br>
+
 `# make -j1 V=s`
 
 After the firmware is successfully built, the image will be located in: <br>

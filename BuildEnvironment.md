@@ -21,11 +21,23 @@ Run the following commands to obtain package definitions and install symlinks fo
 <br>
 `# make menuconfig`
 
-At this time, hardware discussions are in progress for future IoTGoat versions. For now,  proceed with building a raspberry pi firmware image by selecting the following options:
-Target System (Broadcom BCM27xx)
-Subtarget BCM2708
-![Target Settings](/images/owrttarget.png)
+At this time, hardware discussions are in progress for future IoTGoat versions. For now,  proceed with building a Raspberry Pi firmware image by selecting from the following options:
 
+Model | SoC | Target | Subtarget
+------------ | -------------
+A | BCM2835 @ 700MHz | BCM27XX | BCM2708
+B | BCM2835 @ 700MHz | BCM27XX | BCM2708
+CM | BCM2835 @ 700MHz | BCM27XX | BCM2708
+A+ | BCM2835 @ 700MHz | BCM27XX | BCM2708
+B+ | BCM2835 @ 700MHz | BCM27XX | BCM2708
+Zero | BCM2835 @ 1GHz | BCM27XX | BCM2708
+2B |  	BCM2836 @ 900MHz | BCM27XX | BCM2709
+3B |  	BCM2837 @ 1.2GHz | BCM27XX | BCM2710
+
+In this case we have chosen Target System (Broadcom BCM27xx) and Subtarget BCM2708
+
+![Target Settings](/images/owrttarget.png)
+You may also wish to select the LuCi package in order to install the web interface.
 Make modifications according to the target challenge such as:
 Base system > busybox > Networking Utilities > ftpd settings
 ![FTP](/images/ftpd.png)
@@ -88,6 +100,9 @@ crond     fsck.ext3  ip6tables           iw         ntpd           partx        
 delpart  fsck.ext4  ip6tables-restore  mke2fs         ntpd-hotplug  pppd
 ```
 Further validation may be required for dynamic testing oriented challenges. Ensure to leverage emulation where possible using firmadyne, and similar qemu like tools.
+
+For guidance on installing the image to an SD card in order to boot a Raspberry Pi, see:
+**https://www.raspberrypi.org/documentation/installation/installing-images/**
 
 <h2> Virtual Machine Method </h2>
 

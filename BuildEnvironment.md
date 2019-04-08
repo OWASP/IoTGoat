@@ -154,6 +154,14 @@ Execute the following command on the Kali Linux machine or another virtual machi
 ```
 # ifconfig eth0 add 192.168.1.101 broadcast 192.168.1.255
 ```
+
+If you're on Ubuntu (18.04) :
+
+```
+# sudo apt-get install net-tools (if you don't have it installed)
+# sudo ifconfig ens33 add 192.168.1.101 broadcast 192.168.1.255
+```
+
 You should now see a virtual interface named eth0:0. <br>
 ```
 eth0:0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500

@@ -1,5 +1,9 @@
 # No 1: Weak, Guessable, or Hardcoded Passwords.
-There are many ways to develop a Weak, Guessable, or Hardcoded Passwords challenge. Examples challenges and their level of difficulty include:
+There are many ways to develop a Weak, Guessable, or Hardcoded Passwords challenge. Each challenge lesson should include:
+Explain the vulnerability
+Assignments to learn how to exploit the vulnerability
+Decribe the possible mitigation scenarios
+Examples challenges and their level of difficulty include:
 
 1. Recompile uhttpd and insert a hardcoded backdoor user and password that grants admin rights on the web interface. (Hard)
 2. Add a hardcoded encryption key within a network service that uses encryption. (Medium)
@@ -76,8 +80,9 @@ xhr.send(null);
 <%+footer%>
 ```
 Create the accompanying htm page with the following double Base64 contents. <br>
-`root@OpenWrt:~# cat /www/lua/app/s/s.htm
-YVc5MFoyOWhkR2hoY21SamIyUmxaSEJoYzNOM2IzSms=`
+
+```root@OpenWrt:~# cat /www/lua/app/s/s.htm
+YVc5MFoyOWhkR2hoY21SamIyUmxaSEJoYzNOM2IzSms=```
 
 
 For additional details on creating modules, see https://openwrt.org/docs/guide-developer/luci
@@ -95,6 +100,8 @@ Try accessing the supersecret URL directly: https://192.168.1.1/cgi-bin/luci/adm
 In plain sight, no values appear to be shown. Although, open developer tools within the browser and observe the network and console tabs. You should be see the following.
 
 ![IoTGoat Response](/images/iotgoatsecretresponse.png)
+
+![JavaScript Console](/images/console.png)
 
 Our hardcoded password value is displayed in the response and console. A follow up challenge could leverage these credentials due to a vulnerable network service disclosing usernames. Fortunately, the iotgoatuser  is lower privileged and restricted to perform certain functions.
 

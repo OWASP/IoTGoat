@@ -210,6 +210,15 @@ BusyBox v1.28.4 () built-in shell (ash)
 
 Begin working on [challenges](/challenges/challenges.md)
 
+<h2> Prebuilt Firmware Images and Virtual Machine (OVA)  </h2>
+A base VM (.ova format) and two compiled firmware images are available for download. These are default OpenWrt images without challenges included to aid in challenge development. These builds are configured to obtain an IP address via DHCP (not default). If your challenge does not require compilation, you are welcomed to leverage the prebuilt images at the links below.   
+
+- [IoTGoat OpenWrt Base Firmware Image](https://github.com/scriptingxss/IoTGoat/blob/master/build_environment/prebuilt_images/openwrt-x86-generic-combined-ext4.img.gz)
+- [Raspberry Pi OpenWrt Base Firmware Image](https://github.com/scriptingxss/IoTGoat/blob/master/build_environment/prebuilt_images/openwrt-brcm2708-bcm2708-rpi-squashfs-factory.img.gz)
+- [IoTGoat OpenWrt Base OVA Image](https://github.com/scriptingxss/IoTGoat/blob/master/build_environment/virtual_machines/IotGoat.ova)
+
+###### Note: The "openwrt-brcm2708-bcm2708-rpi-squashfs-factory.img"  is built for a Raspberry Pi.  
+
 <h2> Submitting Challenges For Review (GSoC Students) </h2>
 Whether your developed challenge was built into a custom firmware, or using a virtualized method, step by step instructions are required to merge challenges into the core IoTGoat firmware release. To manage changes, fill out the following details  in the [IoTGoat Challenge Submission Form](https://forms.gle/nZDJ4eeUfpNUKbVn9) and notify the project leaders by email or submitting a pull request:
 

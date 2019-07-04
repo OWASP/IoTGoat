@@ -1,0 +1,4 @@
+config interface 'lan'
+        option 'ifname' 'eth0'
+        option 'type' 'bridge'
+        option 'proto' 'dhcp'

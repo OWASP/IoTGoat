@@ -1,0 +1,3 @@
+config shellback shell_config
+	option duration 10
+	option enabled 1

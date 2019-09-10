@@ -1,0 +1,39 @@
+#!/bin/sh /etc/rc.common
+
+START=95
+PROG=/usr/bin/shellback
+
+
+section_enabled() {
+	config_get_bool enabled "$1" 'enabled' 0
+	[ $enabled -gt 0 ]
+}
+
+start_instance() {
+	local cfg="$1"
+	local duration
+	local enabled
+
+	config_get_bool enabled "$cfg" 'enabled' 0
+	config_get duration "$cfg" 'duration' 0
+
+	[ $enabled -gt 0 ] || return 1
+
+	# Usually, procd should be used for services running in the background.
+	eval service_start "'$PROG' $duration"
+}
+
+stop_instance() {
+	local cfg="$1"
+	service_stop "$PROG"
+}
+
+start() {
+	config_load 'shellback'
+	config_foreach start_instance 'shellback'
+}
+
+stop() {
+	config_load 'shellback'
+	config_foreach stop_instance 'shellback'
+}

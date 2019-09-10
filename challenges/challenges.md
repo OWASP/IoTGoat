@@ -1,16 +1,22 @@
 <h3>Challenges</h3>
 
-Examples of vulnerabilities included in IoTGoat consist of the following:
+Examples of vulnerabilities included in IoTGoat consist of the following. Boxes checked are included included in the latest release.
 
 No 1: Weak, Guessable, or Hardcoded Passwords:
 Recompile uhttpd and insert hardcoded backdoor user and password that grants admin rights on the web interface.
 Add hardcoded encryption key in a network service that uses encryption.
 
+- [x] Hardcoded user credentials compiled into firmware. 
+
 No 2: Insecure Network Services:
-Install and setup miniupnp daemon on OpenWrt and configure with secure_mode off (Secure mode; client can only redirect an incoming port to the client itself (same IP as the request comes from), to demonstrate a port mapping attack where an attacker from inside the network exposes a service that typically should be behind a LAN to the internet. This attack can be demonstrated using the [Miranda tool](https://tools.kali.org/information-gathering/miranda)
+- [x] Vulnerable miniupnp configuration allowing unauthorized devices permission to change firewall rules. This attack can be demonstrated using the [Miranda tool](https://tools.kali.org/information-gathering/miranda)
 
 No 3: Insecure Ecosystem Interfaces:
 Have an unauthenticated SOAP service that can be used to enumerate system users or perform other privileged actions.
+
+- [x] A "secret" developer diagnostics page that is not directly accessible and exposes shell access to users. 
+- [x] Persistent backdoor daemon configured to run during start up. 
+
 
 No 4: Lack of Secure Update Mechanism:
 Install a custom service that emulates an insecure vendor update mechanism - perhaps rely on second VM that will have the role of the vendor cloud where updates will be pulled from
@@ -18,11 +24,12 @@ Install a custom service that emulates an insecure vendor update mechanism - per
 No 5: Use of Insecure or Outdated Components:
 Find a public CVE associated with one of the components of OpenWrt and install that vulnerable version on our image.
 
+
 No 6: Insufficient Privacy Protection:
 Install database locally with cleartext sensitive information (PHI / PII) and expose through network - associated vulnerabilities could be a SQL or command injection.
 
 No 7: Insecure Data Transfer:
-Http instead of https, cleartext transmission of PII from database, telnet
+Http instead of https, cleartext transmission of PII from database, telnet. 
 
 No 8: Lack of Device Management:
 configure OpenWrt so that it cannot update packages by default
@@ -45,14 +52,11 @@ In what form is the documentation going to be presented? We could start with an 
 Will every vulnerability be first demonstrated in a step-by-step tutorial and then an additional exercise will have to be completed by the reader?  Or alternatively give the user a high-level description of the challenge and let them do it themselves.
 CTF-like flags for each challenge
 
+Challenge ideas and status could be found withint he [project task sheet](https://docs.google.com/spreadsheets/d/1KXX2K7ikkve6wmdfAVu-sZONgKEBuAkRij_paJUgX2w/edit#gid=0)
 
 <h5>Roadmap:</h5>
 
-April 2019: No1 and No2\
-June 2019: No9\
-July 2019: No3\
-August 2019: No5\
-September 2019: No8\
+September 2019: No5 No8\
 October 2019: No6\
-November 2019: No7\
+November 2019: No7 No 9\
 December 2019: No4

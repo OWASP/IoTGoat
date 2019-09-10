@@ -5,7 +5,7 @@ The IoTGoat Project is a deliberately insecure firmware based on OpenWrt. The pr
 
 <p align="center"><img src="/images/OWASP-IoT-Top-10-2018-final.jpg" alt="IoT Top 10 2018" width="500" height="700" /></p>
 
-To get started with developing IoTGoat challenges, review the [Build Environment Guidance](BuildEnvironment.md) page. If a crucial challenge idea is missing, please reach out to the project leaders below. Be sure to join the [OWASP Slack team](https://join.slack.com/t/owasp/shared_invite/enQtNDI5MzgxMDQ2MTAwLTEyNzIzYWQ2NDZiMGIwNmJhYzYxZDJiNTM0ZmZiZmJlY2EwZmMwYjAyNmJjNzQxNzMyMWY4OTk3ZTQ0MzFhMDY), then join the **#iot-security** for news on upcoming project meetings and updates.
+To get started with developing IoTGoat challenges, review the [Build Environment Guidance](BuildEnvironment.md) page. Precompiled firmware and an OVA with the latest build can be found via https://github.com/scriptingxss/IoTGoat/tree/master/build_environment. If a crucial challenge idea is missing, please reach out to the project leaders below  or add details to the [project task page](https://docs.google.com/spreadsheets/d/1KXX2K7ikkve6wmdfAVu-sZONgKEBuAkRij_paJUgX2w/edit?usp=sharing). Be sure to join the [OWASP Slack team](https://join.slack.com/t/owasp/shared_invite/enQtNDI5MzgxMDQ2MTAwLTEyNzIzYWQ2NDZiMGIwNmJhYzYxZDJiNTM0ZmZiZmJlY2EwZmMwYjAyNmJjNzQxNzMyMWY4OTk3ZTQ0MzFhMDY), then join the **#iot-security** for news on upcoming project meetings and updates.
 
 #### Project leaders
 

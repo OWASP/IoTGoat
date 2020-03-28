@@ -43,8 +43,13 @@ CONFIG_TARGET_brcm2708=y
 # CONFIG_TARGET_brcm2708_bcm2708 is not set
 CONFIG_TARGET_brcm2708_bcm2709=y
 # CONFIG_TARGET_brcm2708_bcm2710 is not set
+# CONFIG_TARGET_x86_generic is not set
+# CONFIG_TARGET_x86_legacy is not set
+# CONFIG_TARGET_x86_geode is not set
+# CONFIG_TARGET_x86_64 is not set
 # CONFIG_TARGET_MULTI_PROFILE is not set
 CONFIG_TARGET_brcm2708_bcm2709_DEVICE_rpi-2=y
+# CONFIG_TARGET_x86_generic_Generic is not set
 CONFIG_HAS_SUBTARGETS=y
 CONFIG_HAS_DEVICES=y
 CONFIG_TARGET_BOARD="brcm2708"
@@ -285,7 +290,7 @@ CONFIG_EXTRA_GCC_CONFIG_OPTIONS=""
 # CONFIG_INSTALL_GFORTRAN is not set
 CONFIG_GDB=y
 CONFIG_USE_MUSL=y
-CONFIG_SSP_SUPPORT=y
+# CONFIG_SSP_SUPPORT is not set
 CONFIG_BINUTILS_VERSION_2_29_1=y
 CONFIG_BINUTILS_VERSION="2.29.1"
 CONFIG_GCC_VERSION="7.3.0"
@@ -2205,7 +2210,7 @@ CONFIG_PACKAGE_libgcc=y
 CONFIG_PACKAGE_libpthread=y
 CONFIG_PACKAGE_librt=y
 # CONFIG_PACKAGE_libstdcpp is not set
-CONFIG_PACKAGE_logd=y
+# CONFIG_PACKAGE_logd is not set
 CONFIG_PACKAGE_mtd=y
 CONFIG_PACKAGE_netifd=y
 # CONFIG_PACKAGE_om-watchdog is not set
@@ -4651,6 +4656,7 @@ CONFIG_PACKAGE_miniupnpd=y
 # CONFIG_PACKAGE_asterisk13 is not set
 # CONFIG_PACKAGE_asterisk15 is not set
 # CONFIG_PACKAGE_baresip is not set
+# CONFIG_PACKAGE_freeswitch is not set
 # CONFIG_PACKAGE_freeswitch-stable is not set
 # CONFIG_PACKAGE_kamailio5 is not set
 # CONFIG_PACKAGE_miax is not set

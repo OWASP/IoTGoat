@@ -2,7 +2,7 @@
 
 # Description
 
-The IoTGoat Project is a deliberately insecure firmware based on [OpenWrt](https://openwrt.org/) and maintained by [OWASP](http://owasp.org/) to educate users how to test for the most common vulnerabilities found in IoT devices. The vulnerability challenges are based on the OWASP IoT Top 10 noted below, as well as "easter eggs" from project contributors. For a list of vulnerability challenges, see the [IoTGoat challenges wiki](https://github.com/scriptingxss/IoTGoat/wiki/IoTGoat-challenges) page. 
+The IoTGoat Project is a deliberately insecure firmware based on [OpenWrt](https://openwrt.org/) and maintained by [OWASP](http://owasp.org/) to educate users how to test for the most common vulnerabilities found in IoT devices. The vulnerability challenges are based on the OWASP IoT Top 10 noted below, as well as "easter eggs" from project contributors. For a list of vulnerability challenges, see the [IoTGoat challenges wiki](https://github.com/OWASP/IoTGoat/wiki/IoTGoat-challenges) page. 
 
 | [OWASP IoT Top 10 2018](https://www.owasp.org/images/1/1c/OWASP-IoT-Top-10-2018-final.pdf) | Description |
 | :--- | :--- |
@@ -35,7 +35,7 @@ OpenWrt can build many different CPU platforms and boards. Building from source 
 > [Do everything as a normal user, don't use root user or sudo when building!](https://openwrt.org/docs/guide-developer/build-system/use-buildsystem)
 
 ```
-$ git clone https://github.com/scriptingxss/IoTGoat.git
+$ git clone https://github.com/OWASP/IoTGoat.git
 $ cd IoTGoat/OpenWrt/openwrt-18.06.2/
 $ ./scripts/feeds update -a
 $ ./scripts/feeds install -a

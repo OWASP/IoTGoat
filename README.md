@@ -27,7 +27,9 @@ Several methods exist to get started with hacking IoTGoat.
 
 3. Emulate firmware with opensource tools (e.g. [Firmadyne](https://github.com/firmadyne/firmadyne) and [FAT](https://github.com/attify/firmware-analysis-toolkit)) that leverage QEMU to virtualize IoTGoat locally.
 
-4. Use the `IoTGoat-raspberry-pi2-sysupgrade.img` firmware to flash on a Raspberry Pi 2 (BRCM2708 & BRCM2709). 
+4. Use the `IoTGoat-raspberry-pi2-sysupgrade.img` firmware to flash on a Raspberry Pi 2 (BRCM2708 & BRCM2709).
+
+Refer to the [Getting started](https://github.com/OWASP/IoTGoat/wiki/Getting-started) page.
 
 ### Building from source
 OpenWrt can build many different CPU platforms and boards. Building from source gives users the flexibility to flash IoTGoat on supported OpenWrt hardware. Ensure 10-15GB disk space is available with at least 4GB of RAM and a [supported Linux distribution such as Ubuntu 18.04](https://openwrt.org/docs/guide-developer/build-system/install-buildsystem). Use the following steps to get started with building custom firmware. 

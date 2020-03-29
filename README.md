@@ -19,7 +19,7 @@ The IoTGoat Project is a deliberately insecure firmware based on [OpenWrt](https
 
 ## Getting started
 
-Multiple methods exist to get started with hacking IoTGoat. 
+Several methods exist to get started with hacking IoTGoat. 
 
 1. For those looking to extract the filesystem, analyze configurations and binaries statically, download the latest precompiled firmware release from https://github.com/scriptingxss/IoTGoat/releases. Refer to OWASP's [Firmware Security Testing Methodology](https://github.com/scriptingxss/owasp-fstm/) to help with identifying vulnerabilities. 
    

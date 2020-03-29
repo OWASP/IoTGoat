@@ -139,7 +139,7 @@ CONFIG_GRUB_BAUDRATE=38400
 # CONFIG_GRUB_FLOWCONTROL is not set
 CONFIG_GRUB_BOOTOPTS=""
 CONFIG_GRUB_TIMEOUT="5"
-# CONFIG_VDI_IMAGES is not set
+CONFIG_VDI_IMAGES=y
 CONFIG_VMDK_IMAGES=y
 CONFIG_TARGET_IMAGES_PAD=y
 CONFIG_TARGET_IMAGES_GZIP=y
@@ -263,19 +263,18 @@ CONFIG_USE_UCLIBCXX=y
 #
 # Hardening build options
 #
-CONFIG_PKG_CHECK_FORMAT_SECURITY=y
+# CONFIG_PKG_CHECK_FORMAT_SECURITY is not set
 # CONFIG_PKG_ASLR_PIE is not set
-# CONFIG_PKG_CC_STACKPROTECTOR_NONE is not set
-CONFIG_PKG_CC_STACKPROTECTOR_REGULAR=y
-# CONFIG_KERNEL_CC_STACKPROTECTOR_NONE is not set
-CONFIG_KERNEL_CC_STACKPROTECTOR_REGULAR=y
+CONFIG_PKG_CC_STACKPROTECTOR_NONE=y
+CONFIG_KERNEL_CC_STACKPROTECTOR_NONE=y
+# CONFIG_KERNEL_CC_STACKPROTECTOR_REGULAR is not set
 # CONFIG_KERNEL_CC_STACKPROTECTOR_STRONG is not set
-# CONFIG_PKG_FORTIFY_SOURCE_NONE is not set
-CONFIG_PKG_FORTIFY_SOURCE_1=y
+CONFIG_PKG_FORTIFY_SOURCE_NONE=y
+# CONFIG_PKG_FORTIFY_SOURCE_1 is not set
 # CONFIG_PKG_FORTIFY_SOURCE_2 is not set
-# CONFIG_PKG_RELRO_NONE is not set
+CONFIG_PKG_RELRO_NONE=y
 # CONFIG_PKG_RELRO_PARTIAL is not set
-CONFIG_PKG_RELRO_FULL=y
+# CONFIG_PKG_RELRO_FULL is not set
 # CONFIG_DEVEL is not set
 # CONFIG_BROKEN is not set
 CONFIG_BINARY_FOLDER=""
@@ -300,7 +299,7 @@ CONFIG_EXTRA_GCC_CONFIG_OPTIONS=""
 CONFIG_YASM=y
 CONFIG_GDB=y
 CONFIG_USE_MUSL=y
-CONFIG_SSP_SUPPORT=y
+# CONFIG_SSP_SUPPORT is not set
 CONFIG_BINUTILS_VERSION_2_29_1=y
 CONFIG_BINUTILS_VERSION="2.29.1"
 CONFIG_GCC_VERSION="7.3.0"
@@ -2192,8 +2191,8 @@ CONFIG_BUSYBOX_CONFIG_LOGGER=y
 # CONFIG_BUSYBOX_CONFIG_SYSLOGD is not set
 # CONFIG_PACKAGE_ca-bundle is not set
 # CONFIG_PACKAGE_ca-certificates is not set
-CONFIG_PACKAGE_dnsmasq=y
-# CONFIG_PACKAGE_dnsmasq-dhcpv6 is not set
+# CONFIG_PACKAGE_dnsmasq is not set
+CONFIG_PACKAGE_dnsmasq-dhcpv6=y
 # CONFIG_PACKAGE_dnsmasq-full is not set
 CONFIG_PACKAGE_dropbear=y
 
@@ -2218,7 +2217,7 @@ CONFIG_PACKAGE_libgcc=y
 CONFIG_PACKAGE_libpthread=y
 CONFIG_PACKAGE_librt=y
 # CONFIG_PACKAGE_libstdcpp is not set
-CONFIG_PACKAGE_logd=y
+# CONFIG_PACKAGE_logd is not set
 CONFIG_PACKAGE_mtd=y
 CONFIG_PACKAGE_netifd=y
 # CONFIG_PACKAGE_om-watchdog is not set
@@ -2677,7 +2676,7 @@ CONFIG_PACKAGE_kmod-ipt-core=y
 # CONFIG_PACKAGE_kmod-ipt-ipp2p is not set
 # CONFIG_PACKAGE_kmod-ipt-iprange is not set
 # CONFIG_PACKAGE_kmod-ipt-ipsec is not set
-# CONFIG_PACKAGE_kmod-ipt-ipset is not set
+CONFIG_PACKAGE_kmod-ipt-ipset=y
 # CONFIG_PACKAGE_kmod-ipt-ipv4options is not set
 # CONFIG_PACKAGE_kmod-ipt-led is not set
 # CONFIG_PACKAGE_kmod-ipt-length2 is not set
@@ -2715,7 +2714,7 @@ CONFIG_PACKAGE_kmod-nf-nat=y
 # CONFIG_PACKAGE_kmod-nf-nathelper-extra is not set
 CONFIG_PACKAGE_kmod-nf-reject=y
 CONFIG_PACKAGE_kmod-nf-reject6=y
-# CONFIG_PACKAGE_kmod-nfnetlink is not set
+CONFIG_PACKAGE_kmod-nfnetlink=y
 # CONFIG_PACKAGE_kmod-nfnetlink-log is not set
 # CONFIG_PACKAGE_kmod-nfnetlink-queue is not set
 # CONFIG_PACKAGE_kmod-nft-arp is not set
@@ -3772,7 +3771,7 @@ CONFIG_PACKAGE_libf2fs=y
 # CONFIG_PACKAGE_libgdbm is not set
 # CONFIG_PACKAGE_libgee is not set
 # CONFIG_PACKAGE_libglpk is not set
-# CONFIG_PACKAGE_libgmp is not set
+CONFIG_PACKAGE_libgmp=y
 # CONFIG_PACKAGE_libgnurl is not set
 # CONFIG_PACKAGE_libgpg-error is not set
 # CONFIG_PACKAGE_libgphoto2 is not set
@@ -3836,7 +3835,12 @@ CONFIG_PACKAGE_liblucihttp-lua=y
 # CONFIG_PACKAGE_libnetfilter-log is not set
 # CONFIG_PACKAGE_libnetfilter-queue is not set
 # CONFIG_PACKAGE_libnetsnmp is not set
-# CONFIG_PACKAGE_libnettle is not set
+CONFIG_PACKAGE_libnettle=y
+
+#
+# Configuration
+#
+# CONFIG_LIBNETTLE_MINI is not set
 # CONFIG_PACKAGE_libnfnetlink is not set
 # CONFIG_PACKAGE_libnftnl is not set
 # CONFIG_PACKAGE_libnghttp2 is not set
@@ -4731,6 +4735,7 @@ CONFIG_PACKAGE_miniupnpd=y
 # CONFIG_PACKAGE_asterisk13 is not set
 # CONFIG_PACKAGE_asterisk15 is not set
 # CONFIG_PACKAGE_baresip is not set
+# CONFIG_PACKAGE_freeswitch is not set
 # CONFIG_PACKAGE_freeswitch-stable is not set
 # CONFIG_PACKAGE_kamailio5 is not set
 # CONFIG_PACKAGE_miax is not set
@@ -4999,7 +5004,7 @@ CONFIG_PACKAGE_uhttpd=y
 # CONFIG_PACKAGE_hnetd-nossl is not set
 # CONFIG_PACKAGE_hnetd-openssl is not set
 # CONFIG_PACKAGE_hostapd is not set
-# CONFIG_PACKAGE_hostapd-common is not set
+CONFIG_PACKAGE_hostapd-common=y
 # CONFIG_PACKAGE_hostapd-mini is not set
 # CONFIG_PACKAGE_hostapd-openssl is not set
 # CONFIG_PACKAGE_hostapd-wolfssl is not set
@@ -5036,7 +5041,7 @@ CONFIG_PACKAGE_uhttpd=y
 # CONFIG_PACKAGE_iputils-tracepath is not set
 # CONFIG_PACKAGE_iputils-tracepath6 is not set
 # CONFIG_PACKAGE_iputils-traceroute6 is not set
-# CONFIG_PACKAGE_iw is not set
+CONFIG_PACKAGE_iw=y
 # CONFIG_PACKAGE_iw-full is not set
 # CONFIG_PACKAGE_jool is not set
 # CONFIG_PACKAGE_jool-tools is not set
@@ -5078,15 +5083,9 @@ CONFIG_PACKAGE_uhttpd=y
 # CONFIG_PACKAGE_noping is not set
 # CONFIG_PACKAGE_nut is not set
 # CONFIG_PACKAGE_obfsproxy is not set
-CONFIG_PACKAGE_odhcp6c=y
-CONFIG_PACKAGE_odhcp6c_ext_cer_id=0
+# CONFIG_PACKAGE_odhcp6c is not set
 # CONFIG_PACKAGE_odhcpd is not set
-CONFIG_PACKAGE_odhcpd-ipv6only=y
-
-#
-# Configuration
-#
-CONFIG_PACKAGE_odhcpd_ipv6only_ext_cer_id=0
+# CONFIG_PACKAGE_odhcpd-ipv6only is not set
 # CONFIG_PACKAGE_ola is not set
 # CONFIG_PACKAGE_omcproxy is not set
 # CONFIG_PACKAGE_openldap-server is not set
@@ -5158,7 +5157,11 @@ CONFIG_PACKAGE_uclient-fetch=y
 # CONFIG_PACKAGE_vti is not set
 # CONFIG_PACKAGE_vxlan is not set
 # CONFIG_PACKAGE_wakeonlan is not set
-# CONFIG_PACKAGE_wpa-supplicant is not set
+# CONFIG_PACKAGE_wpa-cli is not set
+CONFIG_PACKAGE_wpa-supplicant=y
+# CONFIG_WPA_SUPPLICANT_NO_TIMESTAMP_CHECK is not set
+# CONFIG_WPA_RFKILL_SUPPORT is not set
+CONFIG_WPA_MSG_MIN_PRIORITY=3
 # CONFIG_WPA_WOLFSSL is not set
 # CONFIG_DRIVER_WEXT_SUPPORT is not set
 # CONFIG_DRIVER_11N_SUPPORT is not set

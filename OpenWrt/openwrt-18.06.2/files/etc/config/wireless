@@ -1,0 +1,12 @@
+config wifi-device 'wl0'
+	option type 'mac80211'
+	option hwmode '11a'
+	option channel 'auto'
+	option legacy_rates '1'
+
+config wifi-iface
+	option device 'wl0'
+	option mode 'ap'
+	option encryption 'none'
+	option network 'lan'
+	option ssid 'OWASP IoTGoat'

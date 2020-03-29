@@ -30,7 +30,7 @@ Multiple methods exist to get started with hacking IoTGoat.
 4. Use the `IoTGoat-raspberry-pi2-sysupgrade.img` firmware to flash on a Raspberry Pi 2 (BRCM2708 & BRCM2709). 
 
 ### Building from source
-OpenWrt can build many different CPU platforms and boards. Building from source gives users the flexibility to flash IoTGoat on supported OpenWrt hardware. Ensure 10-15GB disk space is availble with at least 4GB of RAM and a [supported Linux distribution such as Ubuntu 18.04](https://openwrt.org/docs/guide-developer/build-system/install-buildsystem).  Use the following steps to get started with building custom firmware. 
+OpenWrt can build many different CPU platforms and boards. Building from source gives users the flexibility to flash IoTGoat on supported OpenWrt hardware. Ensure 10-15GB disk space is available with at least 4GB of RAM and a [supported Linux distribution such as Ubuntu 18.04](https://openwrt.org/docs/guide-developer/build-system/install-buildsystem). Use the following steps to get started with building custom firmware. 
 
 > [Do everything as a normal user, don't use root user or sudo when building!](https://openwrt.org/docs/guide-developer/build-system/use-buildsystem)
 

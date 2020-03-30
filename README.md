@@ -59,6 +59,16 @@ The first build will take some time to complete and will vary based on the provi
 * Jason Andress (@jandress)
 * @0x48piraj
 
+### Screenshots
+
+![](https://github.com/OWASP/IoTGoat/blob/master/images/IoTGoat_login.png)
+***
+![](https://github.com/OWASP/IoTGoat/blob/master/images/IoTGoat_upnp.png)
+***
+![](https://github.com/OWASP/IoTGoat/blob/master/images/IoTGoat_wireless.png)
+***
+![](https://github.com/OWASP/IoTGoat/blob/master/images/OWASPIoTGoat_console.png)
+
 ## License
 
 [The MIT License (MIT)](./LICENSE.md)

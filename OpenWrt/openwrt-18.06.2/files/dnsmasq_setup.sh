@@ -1,5 +1,5 @@
 #!/bin/sh
-echo -e "#############\nPlease ensure Dnsmasq network setup has been followed. See https://tinyurl.com/dnsmasq."\nTo set back to default, use -d default \nUsage: sh ./dnsmasq_setup.sh\n 
+echo -e "#############\nPlease ensure Dnsmasq network setup has been followed. See https://tinyurl.com/iotdnsmasq."\nTo set back to default, use -d default \nUsage: sh ./dnsmasq_setup.sh\n 
 echo -e "\n#############"
 
 

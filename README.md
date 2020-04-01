@@ -2,7 +2,7 @@
 
 # Description
 
-The IoTGoat Project is a deliberately insecure firmware based on [OpenWrt](https://openwrt.org/) and maintained by [OWASP](http://owasp.org/) to educate software developers and security professionals with testing commonly found vulnerabilities in IoT devices. The vulnerability challenges are based on the OWASP IoT Top 10 noted below, as well as "easter eggs" from project contributors. For a list of vulnerability challenges, see the [IoTGoat challenges wiki](https://github.com/OWASP/IoTGoat/wiki/IoTGoat-challenges) page. 
+The IoTGoat Project is a deliberately insecure firmware based on [OpenWrt](https://openwrt.org/) and maintained by [OWASP](http://owasp.org/) as a platform to educate software developers and security professionals with testing commonly found vulnerabilities in IoT devices. The vulnerability challenges are based on the OWASP IoT Top 10 noted below, as well as "easter eggs" from project contributors. For a list of vulnerability challenges, see the [IoTGoat challenges wiki](https://github.com/OWASP/IoTGoat/wiki/IoTGoat-challenges) page. 
 
 | [OWASP IoT Top 10 2018](https://www.owasp.org/images/1/1c/OWASP-IoT-Top-10-2018-final.pdf) | Description |
 | :--- | :--- |

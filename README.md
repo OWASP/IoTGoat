@@ -25,7 +25,7 @@ Several methods exist to get started with hacking IoTGoat.
    
 2. For dynamic web testing and binary runtime analysis, the quickest way to get started is downloading the [latest "IoTGoat-x86.vmdk" (VMware)](https://github.com/scriptingxss/IoTGoat/releases) and create a custom virtual machine using the IoTGoat disk image. Refer to OWASP's [Web Security Testing Guide](https://github.com/OWASP/wstg/tree/master/document) and [ASVS](https://github.com/OWASP/ASVS) projects for additional guidance on identifying web application vulnerabilities
 
-3. Emulate firmware with opensource tools (e.g. [Firmadyne](https://github.com/firmadyne/firmadyne) and [FAT](https://github.com/attify/firmware-analysis-toolkit)) that leverage QEMU to virtualize IoTGoat locally.
+3. Emulate firmware with opensource tools (e.g. [Firmadyne](https://github.com/firmadyne/firmadyne), [ARM-X Framework](https://github.com/therealsaumil/armx/), and [FAT](https://github.com/attify/firmware-analysis-toolkit)) that leverage QEMU to virtualize IoTGoat locally.
 
 4. Use the `IoTGoat-raspberry-pi2-sysupgrade.img` firmware to flash on a Raspberry Pi 2 (BRCM2708 & BRCM2709).
 

@@ -1,0 +1,13 @@
+name: IoTGoat-qemu
+services:
+  iotgoat:
+    build:
+      context: .
+      dockerfile: Dockerfile.qemu
+    container_name: iotgoat-qemu
+    tty: true
+    stdin_open: true
+    ports:
+      - "2222:2222" # SSH
+      - "8080:8080" # HTTP
+      - "4443:4443" # HTTPS / Web interface

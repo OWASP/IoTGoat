@@ -26,7 +26,7 @@ To run this environment, ensure you have the following installed:
 
 ### 1. Clone the Repository
 
-First, clone the repository to your local machine.
+First, clone the repository to your local machine:
 
 ```bash
 git clone https://github.com/OWASP/IoTGoat

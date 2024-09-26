@@ -1,4 +1,4 @@
-name: IoTGoat-qemu
+name: iotgoat-qemu
 services:
   iotgoat:
     build:

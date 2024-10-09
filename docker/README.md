@@ -11,7 +11,7 @@ To run this environment, ensure you have the following installed:
 2. [Docker Compose](https://docs.docker.com/compose/install/)
    - Docker Compose simplifies the orchestration of multi-container Docker applications.
 3. [QEMU](https://www.qemu.org/download/)
-   - QEMU is used to convert the IoTGoat image to qcow2 format.
+   - The `qemu-img` tool from QEMU is used to convert the IoTGoat image to the qcow2 format.
 4. [IoTGoat - Latest Release](https://github.com/OWASP/IoTGoat/releases/latest)
    - The IoTGoat image is used to run the IoT environment.
    - The image is required to be in qcow2 format.
@@ -89,7 +89,7 @@ To connect to the IoTGoat environment via SSH, run:
 ssh -o HostKeyAlgorithms=+ssh-rsa iotgoatuser@localhost -p 2222
 ```
 
-You may be prompted for a password.
+You will be prompted for a password when connecting via SSH. As part of the IoTGoat task, your objective is to find this password.
 
 #### HTTP Access
 
@@ -143,7 +143,7 @@ docker-compose up --build
 - Ensure Docker and Docker Compose are correctly installed and running on your system.
 - If you encounter any issues with ports, ensure that the ports specified in `docker-compose.yml` (2222, 8080, 4443) are available on your host system.
 - For a clean environment reset, use `docker-compose down -v` to remove volumes and the container.
-- QEMU does not have to be installed on the host machine. It is installed on the Docker image.
+- QEMU is required on the host machine solely for using the qemu-img tool to convert the IoTGoat image to qcow2 format. It is not needed for any other tasks on the host.
 - Ensure proper permissions for the `IoTGoat-x86.qcow2` file. Especially if Docker cannot access it. Run the following command to fix it:
 
 ```bash

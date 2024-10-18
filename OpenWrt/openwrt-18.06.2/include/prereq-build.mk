@@ -28,8 +28,8 @@ $(eval $(call TestHostCommand,proper-umask, \
 
 $(eval $(call SetupHostCommand,gcc, \
 	Please install the GNU C Compiler (gcc) 4.8 or later, \
-	$(CC) -dumpversion | grep -E '^(4\.[8-9]|[5-9]\.?)', \
-	gcc -dumpversion | grep -E '^(4\.[8-9]|[5-9]\.?)', \
+	$(CC) -dumpversion | grep -E '^(4\.[8-9]|[5-9]\.?|10\.?)', \
+	gcc -dumpversion | grep -E '^(4\.[8-9]|[5-9]\.?|10\.?)', \
 	gcc48 --version | grep gcc, \
 	gcc49 --version | grep gcc, \
 	gcc5 --version | grep gcc, \
@@ -37,7 +37,8 @@ $(eval $(call SetupHostCommand,gcc, \
 	gcc7 --version | grep gcc, \
 	gcc8 --version | grep gcc, \
 	gcc9 --version | grep gcc, \
-	gcc --version | grep Apple.LLVM ))
+	gcc10 --version | grep gcc, \
+	gcc --version | grep -E 'Apple.(LLVM|clang)' ))
 
 $(eval $(call TestHostCommand,working-gcc, \
 	\nPlease reinstall the GNU C Compiler (4.8 or later) - \
@@ -47,8 +48,8 @@ $(eval $(call TestHostCommand,working-gcc, \
 
 $(eval $(call SetupHostCommand,g++, \
 	Please install the GNU C++ Compiler (g++) 4.8 or later, \
-	$(CXX) -dumpversion | grep -E '^(4\.[8-9]|[5-9]\.?)', \
-	g++ -dumpversion | grep -E '^(4\.[8-9]|[5-9]\.?)', \
+	$(CXX) -dumpversion | grep -E '^(4\.[8-9]|[5-9]\.?|10\.?)', \
+	g++ -dumpversion | grep -E '^(4\.[8-9]|[5-9]\.?|10\.?)', \
 	g++48 --version | grep g++, \
 	g++49 --version | grep g++, \
 	g++5 --version | grep g++, \
@@ -56,7 +57,8 @@ $(eval $(call SetupHostCommand,g++, \
 	g++7 --version | grep g++, \
 	g++8 --version | grep g++, \
 	g++9 --version | grep g++, \
-	g++ --version | grep Apple.LLVM ))
+	g++10 --version | grep g++, \
+	g++ --version | grep -E 'Apple.(LLVM|clang)' ))
 
 $(eval $(call TestHostCommand,working-g++, \
 	\nPlease reinstall the GNU C++ Compiler (4.8 or later) - \

@@ -617,7 +617,7 @@ int main(int ac, char **av)
 			name = getenv("KCONFIG_NOSILENTUPDATE");
 			if (name && *name) {
 				fprintf(stderr,
-					_("\n*** The configuration requires explicit update.\n\n"));
+					"\n*** The configuration requires explicit update.\n\n");
 				return 1;
 			}
 		}
@@ -671,22 +671,22 @@ int main(int ac, char **av)
 		 */
 		if ((output_file || conf_get_changed()) &&
 		    conf_write(output_file)) {
-			fprintf(stderr, _("\n*** Error during writing of the configuration.\n\n"));
+			fprintf(stderr, "\n*** Error during writing of the configuration.\n\n");
 			exit(1);
 		}
 		if (conf_write_autoconf()) {
-			fprintf(stderr, _("\n*** Error during update of the configuration.\n\n"));
+			fprintf(stderr, "\n*** Error during update of the configuration.\n\n");
 			return 1;
 		}
 	} else if (input_mode == savedefconfig) {
 		if (conf_write_defconfig(defconfig_file)) {
-			fprintf(stderr, _("n*** Error while saving defconfig to: %s\n\n"),
+			fprintf(stderr, "n*** Error while saving defconfig to: %s\n\n",
 				defconfig_file);
 			return 1;
 		}
 	} else if (input_mode != listnewconfig) {
 		if (conf_write(output_file)) {
-			fprintf(stderr, _("\n*** Error during writing of the configuration.\n\n"));
+			fprintf(stderr, "\n*** Error during writing of the configuration.\n\n");
 			exit(1);
 		}
 	}

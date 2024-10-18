@@ -776,7 +776,7 @@ int conf_write(const char *name)
 	sprintf(newname, "%s%s", dirname, basename);
 	env = getenv("KCONFIG_OVERWRITECONFIG");
 	if (!env || !*env) {
-		sprintf(tmpname, "%s.tmpconfig.%d", dirname, (int)getpid());
+		snprintf(tmpname, sizeof(tmpname), "%s.tmpconfig.%d", dirname, (int)getpid());
 		out = fopen(tmpname, "w");
 	} else {
 		*tmpname = 0;

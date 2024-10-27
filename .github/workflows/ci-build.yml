@@ -1,0 +1,75 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "*" ]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 5'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  OPENWRT_DIR: OpenWrt/openwrt-18.06.2
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: install
+      shell: bash
+      run: |
+        sudo apt-get update
+        sudo apt-get --assume-yes install git-core build-essential libssl-dev libncurses5-dev unzip gawk zlib1g-dev
+
+    - name: Install Python2
+      run: |
+        # From https://ubuntuforums.org/showthread.php?t=2486174&p=14140057#post14140057
+        wget https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tgz
+        sudo tar xzf Python-2.7.9.tgz
+        cd Python-2.7.9
+        sudo ./configure --enable-optimizations
+        sudo make altinstall
+        sudo ln -sfn '/usr/local/bin/python2.7' '/usr/bin/python2'
+        # sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+
+    - name: Update feeds
+      shell: bash
+      run: cd $OPENWRT_DIR && ./scripts/feeds update -a
+
+    - name: Install feeds
+      shell: bash
+      run: cd $OPENWRT_DIR && ./scripts/feeds install -a
+
+    - name: Download package
+      id: package
+      shell: bash
+      run: |
+        cd $OPENWRT_DIR
+        make defconfig
+        make download -j8
+        find dl -size -1024c -exec ls -l {} \;
+        find dl -size -1024c -exec rm -f {} \;
+
+    - name: Compile the firmware
+      id: compile
+      shell: bash
+      run: |
+        cd $OPENWRT_DIR
+        echo -e "$(nproc) thread compile"
+        make -j$(nproc) || make -j1 || make -j1 V=sc
+        # echo "status=success" >> $GITHUB_OUTPUT
+        # grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
+        # [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
+        # echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV

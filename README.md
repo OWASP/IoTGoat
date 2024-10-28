@@ -29,6 +29,8 @@ Several methods exist to get started with hacking IoTGoat.
 
 4. Use the `IoTGoat-raspberry-pi2-sysupgrade.img` firmware to flash on a Raspberry Pi 2 (BRCM2708 & BRCM2709).
 
+5. Use the Docker setup to run IoTGoat in a containerized environment. Refer to the [Docker](/docker/README.md) setup guide for more details.
+
 Refer to the [Getting started](https://github.com/OWASP/IoTGoat/wiki/Getting-started) page for additional details and screencaptures.
 
 ### Building from source
@@ -58,6 +60,8 @@ The first build will take some time to complete and will vary based on the provi
 * Abhinav Mohanty (cyanide284)
 * Jason Andress (@jandress)
 * @0x48piraj
+* Abdallah Ajjawi (@lefanous)
+* Amar Djebarra (@GeekMuch)
 
 ### Screenshots
 

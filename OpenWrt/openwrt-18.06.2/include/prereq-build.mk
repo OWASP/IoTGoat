@@ -27,36 +27,22 @@ $(eval $(call TestHostCommand,proper-umask, \
 	umask | grep -xE 0?0[012][012]))
 
 $(eval $(call SetupHostCommand,gcc, \
-	Please install the GNU C Compiler (gcc) 4.8 or later, \
-	$(CC) -dumpversion | grep -E '^(4\.[8-9]|[5-9]\.?)', \
-	gcc -dumpversion | grep -E '^(4\.[8-9]|[5-9]\.?)', \
-	gcc48 --version | grep gcc, \
-	gcc49 --version | grep gcc, \
-	gcc5 --version | grep gcc, \
-	gcc6 --version | grep gcc, \
-	gcc7 --version | grep gcc, \
-	gcc8 --version | grep gcc, \
-	gcc9 --version | grep gcc, \
-	gcc --version | grep Apple.LLVM ))
+	Please install the GNU C Compiler (gcc) 6 or later, \
+	$(CC) -dumpversion | grep -E '^([6-9]\.?|1[0-9]\.?)', \
+	gcc -dumpversion | grep -E '^([6-9]\.?|1[0-9]\.?)', \
+	gcc --version | grep -E 'Apple.(LLVM|clang)' ))
 
 $(eval $(call TestHostCommand,working-gcc, \
-	\nPlease reinstall the GNU C Compiler (4.8 or later) - \
+	\nPlease reinstall the GNU C Compiler (6 or later) - \
 	it appears to be broken, \
 	echo 'int main(int argc, char **argv) { return 0; }' | \
 		gcc -x c -o $(TMP_DIR)/a.out -))
 
 $(eval $(call SetupHostCommand,g++, \
-	Please install the GNU C++ Compiler (g++) 4.8 or later, \
-	$(CXX) -dumpversion | grep -E '^(4\.[8-9]|[5-9]\.?)', \
-	g++ -dumpversion | grep -E '^(4\.[8-9]|[5-9]\.?)', \
-	g++48 --version | grep g++, \
-	g++49 --version | grep g++, \
-	g++5 --version | grep g++, \
-	g++6 --version | grep g++, \
-	g++7 --version | grep g++, \
-	g++8 --version | grep g++, \
-	g++9 --version | grep g++, \
-	g++ --version | grep Apple.LLVM ))
+	Please install the GNU C++ Compiler (g++) 6 or later, \
+	$(CXX) -dumpversion | grep -E '^([6-9]\.?|1[0-9]\.?)', \
+	g++ -dumpversion | grep -E '^([6-9]\.?|1[0-9]\.?)', \
+	g++ --version | grep -E 'Apple.(LLVM|clang)' ))
 
 $(eval $(call TestHostCommand,working-g++, \
 	\nPlease reinstall the GNU C++ Compiler (4.8 or later) - \

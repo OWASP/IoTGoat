@@ -1,0 +1,35 @@
+# Use a base image with QEMU installed
+FROM ubuntu:20.04
+
+# Install necessary packages including OpenSSH
+RUN apt-get update && apt-get install -y \
+    qemu-system-x86 \
+    qemu-utils \
+    openssh-server \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /opt
+
+# Copy the local IoTGoat image (should be added to the docker directory manually)
+# Fetch the latest image from https://github.com/OWASP/IoTGoat/releases/latest
+# Convert the image to a qcow2 format using the following command:
+# qemu-img convert -f raw -O qcow2 /path/to/IoTGoat-x86.vmdk /path/to/IoTGoat-x86.qcow2
+COPY ./IoTGoat-x86.qcow2 /opt/IoTGoat-x86.qcow2
+
+# Expose necessary ports for SSH (22), HTTP (80), HTTPS (443), and Web interface (5000)
+EXPOSE 2222 8080 4443 
+
+# Configure SSH server to generate stronger host keys (overwrite if they exist)
+RUN ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -N "" -q -y && \
+    ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N "" -q -y && \
+    sed -i 's/#HostKey \/etc\/ssh\/ssh_host_ecdsa_key/HostKey \/etc\/ssh\/ssh_host_ecdsa_key/' /etc/ssh/sshd_config && \
+    sed -i 's/#HostKey \/etc\/ssh\/ssh_host_ed25519_key/HostKey \/etc\/ssh\/ssh_host_ed25519_key/' /etc/ssh/sshd_config
+
+# Restart SSH service to apply the changes
+RUN service ssh restart
+
+# Run QEMU with IoTGoat image and network forwarding
+CMD ["qemu-system-x86_64", "-hda", "/opt/IoTGoat-x86.qcow2", "-m", "2048", "-smp", "2", \
+    "-netdev", "user,id=mynet0,hostfwd=tcp::2222-:22,hostfwd=tcp::8080-:80,hostfwd=tcp::4443-:443,hostfwd=tcp::5000-:5000", \
+    "-device", "e1000,netdev=mynet0", "-nographic", "-display", "none"]

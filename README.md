@@ -61,7 +61,7 @@ The first build will take some time to complete and will vary based on the provi
 * Jason Andress (@jandress)
 * @0x48piraj
 * Abdallah Ajjawi (@lefanous)
-* Amar Djebarra (@GeekMuch)
+* Amar Djebbara (@GeekMuch)
 
 ### Screenshots
 

@@ -26,11 +26,11 @@ To run this environment, ensure you have the following installed:
 
 ### 1. Clone the Repository
 
-First, clone the repository to your local machine:
+First, clone the repository to your local machine and navigate to the `docker` directory inside the cloned repository:
 
 ```bash
 git clone https://github.com/OWASP/IoTGoat
-cd IoTGoat
+cd IoTGoat/docker
 ```
 
 ### 2. Fetch and Convert the IoTGoat Image
@@ -79,7 +79,7 @@ This will:
 
 ### 5. Accessing the Services
 
-After running `docker-compose up --build`, the following services will be available:
+After running `docker compose up --build`, the following services will be available:
 
 #### SSH Access
 
@@ -112,7 +112,7 @@ https://localhost:4443
 To stop the running container, press `CTRL+C` in the terminal running Docker Compose, or use:
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
 This will stop and remove the container.
@@ -124,7 +124,7 @@ The IoTGoat environment is configured to persist its data inside a Docker volume
 To remove the volume and reset the environment, use:
 
 ```bash
-docker-compose down -v
+docker compose down -v
 ```
 
 ### 8. Rebuilding the Container
@@ -132,7 +132,7 @@ docker-compose down -v
 If you make changes to the `Dockerfile.qemu` or the project files, rebuild the container using:
 
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 
 ---
@@ -141,8 +141,8 @@ docker-compose up --build
 
 - Verify SSH configuration and exposed ports to mitigate potential security risks and usage of default credentials.
 - Ensure Docker and Docker Compose are correctly installed and running on your system.
-- If you encounter any issues with ports, ensure that the ports specified in `docker-compose.yml` (2222, 8080, 4443) are available on your host system.
-- For a clean environment reset, use `docker-compose down -v` to remove volumes and the container.
+- If you encounter any issues with ports, ensure that the ports specified in `docker compose.yml` (2222, 8080, 4443) are available on your host system.
+- For a clean environment reset, use `docker compose down -v` to remove volumes and the container.
 - QEMU is required on the host machine solely for using the qemu-img tool to convert the IoTGoat image to qcow2 format. It is not needed for any other tasks on the host.
 - Ensure proper permissions for the `IoTGoat-x86.qcow2` file. Especially if Docker cannot access it. Run the following command to fix it:
 

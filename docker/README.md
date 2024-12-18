@@ -9,18 +9,13 @@ To run this environment, ensure you have the following installed:
 1. [Docker](https://www.docker.com/get-started)
    - Docker is used to create and run the containerized environment.
 2. [Docker Compose](https://docs.docker.com/compose/install/)
-   - Docker Compose simplifies the orchestration of multi-container Docker applications.
-3. [QEMU](https://www.qemu.org/download/)
-   - The `qemu-img` tool from QEMU is used to convert the IoTGoat image to the qcow2 format.
-4. [IoTGoat - Latest Release](https://github.com/OWASP/IoTGoat/releases/latest)
-   - The IoTGoat image is used to run the IoT environment.
-   - The image is required to be in qcow2 format.
+   - Docker Compose simplifies the orchestration of multi-container Docker applications. Docker Compose is accompanied by docker desktop by default.
 
 ## Files Overview
 
 - **Dockerfile.qemu**: This Dockerfile defines the base Ubuntu image and installs QEMU, SSH, and other necessary components.
 - **docker-compose.yml**: This file defines the services and networking configurations for Docker Compose.
-- **IoTGoat-x86.qcow2**: This is the manually added IoTGoat image (in qcow2 format) that QEMU will use to run the IoT environment.
+- **IoTGoat-x86.qcow2**: (optional) This is the manually added IoTGoat image (in qcow2 format) that QEMU will use to run the IoT environment. This is only necessary if you want to use a specific version of IoTGoat. By default, the docker script will automatically download the latest version
 
 ## Setup Instructions
 
@@ -33,9 +28,9 @@ git clone https://github.com/OWASP/IoTGoat
 cd IoTGoat/docker
 ```
 
-### 2. Fetch and Convert the IoTGoat Image
+### 2. Fetch and Convert the IoTGoat Image (Optional)
 
-Download the latest IoTGoat image (IoTGoat-x86.img.gz) from the [releases page](https://github.com/OWASP/IoTGoat/releases/latest) and convert it to qcow2 format using the following command:
+If you don't want the script to download the latest IoTGoat image and you would like to use a specific version, you can download it from the image (IoTGoat-x86.img.gz) from the [releases page](https://github.com/OWASP/IoTGoat/releases/latest) and convert it to qcow2 format using the following command:
 
 Unzip the file and convert it to qcow2 format using the following command:
 
@@ -46,7 +41,7 @@ qemu-img convert -f raw -O qcow2 IoTGoat-x86.img IoTGoat-x86.qcow2
 
 The image should be added to the `docker` directory.
 
-### 3. Project Structure
+### Project Structure
 
 Ensure your project directory looks like this:
 
@@ -56,7 +51,7 @@ IoTGoat/
 ├── docker/                       # Docker files and configs
 │   ├── Dockerfile.qemu           # QEMU environment setup
 │   ├── docker-compose.yml        # Docker Compose config
-│   ├── IoTGoat-x86.qcow2         # QCOW image (add manually)
+│   ├── IoTGoat-x86.qcow2         # QCOW image (add manually if you want to use a specific version of IoTGoat)
 │   └── README.md                 # Docker and QCOW setup instructions
 │...
 ```
@@ -144,7 +139,7 @@ docker compose up --build
 - If you encounter any issues with ports, ensure that the ports specified in `docker compose.yml` (2222, 8080, 4443) are available on your host system.
 - For a clean environment reset, use `docker compose down -v` to remove volumes and the container.
 - QEMU is required on the host machine solely for using the qemu-img tool to convert the IoTGoat image to qcow2 format. It is not needed for any other tasks on the host.
-- Ensure proper permissions for the `IoTGoat-x86.qcow2` file. Especially if Docker cannot access it. Run the following command to fix it:
+- Ensure proper permissions for the `IoTGoat-x86.qcow2` file if downloaded manually. Especially if Docker cannot access it. Run the following command to fix it:
 
 ```bash
 chmod 644 /path/to/IoTGoat-x86.qcow2

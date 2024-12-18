@@ -25,6 +25,9 @@ RUN ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -N "" -q -y && \
 # Restart SSH service to apply the changes
 RUN service ssh restart
 
+# Copy these if the exist
+COPY IoTGoat-x86.* /opt/
+
 # Copy the entrypoint script
 COPY entrypoint.sh /opt/entrypoint.sh
 RUN chmod +x /opt/entrypoint.sh

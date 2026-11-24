@@ -130,7 +130,8 @@ dnsmasq() {
 	append_bool "$cfg" expandhosts "--expand-hosts"
 	append_bool "$cfg" enable_tftp "--enable-tftp"
 	append_bool "$cfg" tftp_no_fail "--tftp-no-fail"
-	append_bool "$cfg" nonwildcard "--bind-interfaces"
+	config_get_bool nonwildcard "$cfg" nonwildcard 1
+	[ "$nonwildcard" -gt 0 ] && xappend "--bind-dynamic"
 	append_bool "$cfg" fqdn "--dhcp-fqdn"
 	append_bool "$cfg" proxydnssec "--proxy-dnssec"
 	append_bool "$cfg" localservice "--local-service"
@@ -556,7 +557,7 @@ start_service() {
 	procd_set_param respawn
 
 	procd_add_jail dnsmasq ubus log
-	procd_add_jail_mount $CONFIGFILE $TRUSTANCHORSFILE $HOSTFILE /etc/passwd /dev/urandom /etc/dnsmasq.conf /tmp/dnsmasq.d /tmp/resolv.conf.auto /etc/hosts /etc/ethers
+	procd_add_jail_mount $CONFIGFILE $TRUSTANCHORSFILE $HOSTFILE /etc/passwd /etc/group /dev/urandom /etc/dnsmasq.conf /tmp/dnsmasq.d /tmp/resolv.conf.auto /etc/hosts /etc/ethers
 	procd_add_jail_mount_rw /var/run/dnsmasq/ /tmp/dhcp.leases $TIMESTAMPFILE
 	
 	procd_close_instance
@@ -567,10 +568,8 @@ start_service() {
 	mkdir -p /var/lib/misc
 	touch /tmp/dhcp.leases
 
-	if [ ! -f "$TIMESTAMPFILE" ]; then
-		touch "$TIMESTAMPFILE"
-		chown nobody.nogroup "$TIMESTAMPFILE"
-	fi
+	[ -f "$TIMESTAMPFILE" ] || touch "$TIMESTAMPFILE"
+	chown dnsmasq.dnsmasq "$TIMESTAMPFILE"
 
 	echo "# auto-generated config file from /etc/config/dhcp" > $CONFIGFILE
 	echo "# auto-generated config file from /etc/config/dhcp" > $HOSTFILE
@@ -579,6 +578,9 @@ start_service() {
 	[ -f /etc/dnsmasq.conf ] && {
 		xappend "--conf-file=/etc/dnsmasq.conf"
 	}
+
+	xappend "--user=dnsmasq"
+	xappend "--group=dnsmasq"
 
 	args=""
 	config_foreach dnsmasq dnsmasq
